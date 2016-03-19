@@ -1,0 +1,5 @@
+Using MVVM pattern .
+this carries View ViewModel Model
+Model part consists : 1.REST service
+                      2.DBHandler
+                      3.Controller :it act like Manager
