@@ -7,10 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 
 import com.shoppingpad.R;
-import com.shoppingpad.oberver.ContentListViewObserver;
 import com.shoppingpad.viewmodel.ContentListViewHandler;
 
 /**
@@ -80,7 +78,7 @@ public class ContentListView extends AppCompatActivity
         {
             super.onPostExecute(s);
 //          mAdapter = new ContentListAdapter(ContentListView.this,mContentListViewHandler);
-            mAdapter = new BindingAdapter(ContentListView.this,mContentListViewHandler);
+            mAdapter = new ContentListAdapter(ContentListView.this,mContentListViewHandler);
             mRecyclerView.setAdapter(mAdapter);
             mProgressDialog.dismiss();
         }

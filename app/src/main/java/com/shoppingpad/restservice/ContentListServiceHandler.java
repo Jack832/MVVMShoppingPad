@@ -37,8 +37,8 @@ public class ContentListServiceHandler
 {
     public static final boolean mPERFORM_UNIT_TEST = false;
     //url of Json
-    String ContentInfoUrl = "http://54.165.130.78:3000/api/v4/contentinfo";
-    String ContentViewUrl = "http://54.165.130.78:3000/api/v4/usercontentview";
+    String ContentInfoUrl = "http://54.86.64.100:3000/api/v4/content/info";
+    String ContentViewUrl = "http://54.86.64.100:3000/api/v4/content/View";
     static JSONArray jsonArray = null;
     //using JsonArray to load the data from Url
     public JSONArray jsonArrayView;

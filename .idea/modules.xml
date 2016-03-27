@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ShoppingPad.iml" filepath="$PROJECT_DIR$/ShoppingPad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MVVMShoppingPad.iml" filepath="$PROJECT_DIR$/MVVMShoppingPad.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
