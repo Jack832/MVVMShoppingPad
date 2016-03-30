@@ -37,8 +37,8 @@ public class ContentListServiceHandler
 {
     public static final boolean mPERFORM_UNIT_TEST = false;
     //url of Json
-    String ContentInfoUrl = "http://54.86.64.100:3000/api/v4/content/info";
-    String ContentViewUrl = "http://54.86.64.100:3000/api/v4/content/View";
+    String ContentInfoUrl = "http://54.86.64.100:3000/api/v1/content/content-info";
+    String ContentViewUrl = "http://54.86.64.100:3000/api/v1/content/user-content-view";
     static JSONArray jsonArray = null;
     //using JsonArray to load the data from Url
     public JSONArray jsonArrayView;
@@ -120,46 +120,6 @@ public class ContentListServiceHandler
         return jsonArray;
     }
 }
-    //Dummy data for ContentViews
-    /*
-    private void populateContentViewDummyData()
-    {
-        // json array creation
-        contentViewData="{\"ShoppingPad\":[{\"Content_id\":0,\"lastViewedDateTime\":" +
-                "\"12/1/16\",\"numberOfViews\":52}," +
-                "{\"Content_id\":1,\"lastViewedDateTime\":\"12/2/16\"," +
-                "\"numberOfViews\":42}]}";
-      try
-        {
-            JSONObject jsonObject= new JSONObject(contentViewData);
-            JSONArray jsonArray=jsonObject.optJSONArray("ShoppingPad");
-            for(int i=0;i<jsonArray.length();i++)
-            {
-            JSONObject jsonObject1=jsonArray.getJSONObject(i);
-            ContentServiceModel contentServiceModel =new ContentServiceModel();
-            contentServiceModel.mLastViewDateTimeService = jsonObject1.
-                    optString("lastSeen").toString();
-            contentServiceModel.mNumberofViewsService    = Integer.parseInt
-                    (jsonObject1.optString("noOfView").toString());
-            contentServiceModel.mNumberofParticipantsService = Integer.parseInt
-                    (jsonObject1.optString("participants").toString());
-            contentServiceModel.mContentidService=Integer.parseInt
-                    (jsonObject1.optString("ContentId").toString());
-            mServiceViewModel.add(contentServiceModel);
-            }
-        } catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
- }
 
-    //Dummy Data for ContentInfo
-    private void populateContentInfoDummyData()
-    {
-
-        contentInfoData="{\"ShoppingPad\":[{\"Content_id\":0,\"display_name\":\"Karma\"}," +
-                "{\"Content_id\":1,\"display_name\":\"Sharma\"}]}";
-
-    }*/
 
 
