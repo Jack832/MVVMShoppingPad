@@ -66,6 +66,7 @@ public class ContentListServiceHandler
     public JSONArray getJsonArrayOfView()
     {
         jsonArrayView = getJsonData(ContentViewUrl);
+        Log.w("server call", "getJsonArrayOfInfo:View Download ");
         return jsonArrayView;
     }
 
@@ -73,6 +74,7 @@ public class ContentListServiceHandler
     public JSONArray getJsonArrayOfInfo()
     {
         JSONArray jsonArrayInfo = getJsonData(ContentInfoUrl);
+        Log.w("server call", "getJsonArrayOfInfo:info Download ");
         return jsonArrayInfo;
     }
 

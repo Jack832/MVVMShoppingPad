@@ -81,8 +81,6 @@ public class ContentListViewHandler
                                                    getJsonInfoData();
         List<ViewModel> contentViewList=mContentListViewController.
                                                   getJsonViewData();
-
-
        for(int i=0;i<contentInfoList.size();i++)
        {
            mContentViewData = new ContentViewModel();

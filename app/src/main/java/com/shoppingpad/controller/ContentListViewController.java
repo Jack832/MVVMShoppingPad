@@ -2,6 +2,8 @@ package com.shoppingpad.controller;
 
 
 import android.content.Context;
+import android.support.v4.util.LogWriter;
+import android.util.Log;
 
 import com.shoppingpad.R;
 import com.shoppingpad.localdatabase.ContentListDBHandler;
@@ -124,7 +126,10 @@ public class ContentListViewController
                 e.printStackTrace();
             }
         }
+
+        Log.w("DataBase", "getJsonInfoData:downloading ");
         insertInfoDataIntoTables();
+        Log.w("DataBase","getJsonInfoData:download comp ");
         return mInfoDataListFromREST;
     }
 
@@ -145,7 +150,9 @@ public class ContentListViewController
                 e.printStackTrace();
             }
         }
+        Log.w("view DataBase", "getViewDATA:downloading");
         insertViewDataIntoTables();
+        Log.w("view DataBase", "getViewDATA:download comp ");
         return mViewDataListFromREST;
     }
 

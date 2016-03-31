@@ -2,6 +2,7 @@ package com.shoppingpad.view;
 
 import android.content.Context;
 import android.databinding.BindingAdapter;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -20,6 +21,8 @@ public class ImageBinding
     public static void getDisplayImage(ImageView imageView,String url)
     {
         Context context=imageView.getContext();
+        Log.w("Image downloading", "getDisplayImage:Image downloading");
         Picasso.with(context).load(url).placeholder(R.drawable.nehra).into(imageView);
+        Log.w("Image set", "getDisplayImage:Image downloading complete");
     }
 }

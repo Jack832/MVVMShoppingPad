@@ -51,6 +51,7 @@ public class ContentListView extends AppCompatActivity
         mContentListViewHandler = new ContentListViewHandler(ContentListView.this);
         LoadContentData contentData= new LoadContentData();
         contentData.execute();
+
    }
 
     class LoadContentData extends AsyncTask<Void, Void, Void>
