@@ -6,6 +6,7 @@ import android.support.v4.util.LogWriter;
 import android.util.Log;
 
 import com.shoppingpad.R;
+import com.shoppingpad.TimeCalculate;
 import com.shoppingpad.localdatabase.ContentListDBHandler;
 import com.shoppingpad.model.ContentInfoModel;
 import com.shoppingpad.model.ViewModel;
@@ -50,6 +51,9 @@ public class ContentListViewController
     List<ContentInfoModel> mInfoDataListFromREST;
     //creating View list Rest
     public static List<ViewModel> mViewDataListFromREST;
+    //timer object
+    TimeCalculate time;
+    double totalTime;
 
 
     //calling the serviceHandler to generate dummy Data
@@ -57,6 +61,7 @@ public class ContentListViewController
     {
         mInfoDataListFromREST = new ArrayList<>();
         mViewDataListFromREST = new ArrayList<>();
+        time= new TimeCalculate();
         // mContentInfoModel= new ContentInfoModel();
 
         if (mPERFORM_UNIT_TEST)
@@ -127,9 +132,11 @@ public class ContentListViewController
             }
         }
 
-        Log.w("DataBase", "getJsonInfoData:downloading ");
+        time.startTimer();
         insertInfoDataIntoTables();
-        Log.w("DataBase","getJsonInfoData:download comp ");
+        time.endTime();
+        totalTime=time.timeRequired();
+        Log.w("DataBase","InfoData insert:"+totalTime);
         return mInfoDataListFromREST;
     }
 
@@ -150,9 +157,11 @@ public class ContentListViewController
                 e.printStackTrace();
             }
         }
-        Log.w("view DataBase", "getViewDATA:downloading");
+        time.startTimer();
         insertViewDataIntoTables();
-        Log.w("view DataBase", "getViewDATA:download comp ");
+        time.endTime();
+        totalTime=time.timeRequired();
+        Log.w("DataBase", "viewData insert "+totalTime);
         return mViewDataListFromREST;
     }
 

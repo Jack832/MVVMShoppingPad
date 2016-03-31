@@ -7,6 +7,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.shoppingpad.R;
+import com.shoppingpad.TimeCalculate;
 import com.squareup.picasso.Picasso;
 
 /**
@@ -14,6 +15,8 @@ import com.squareup.picasso.Picasso;
  */
 public class ImageBinding
 {
+    static TimeCalculate time;
+    static double totalTime;
 
     //to bind image we use this method it contanis the url and image view
     //position we are using picasso to load the image from url
@@ -21,8 +24,11 @@ public class ImageBinding
     public static void getDisplayImage(ImageView imageView,String url)
     {
         Context context=imageView.getContext();
-        Log.w("Image downloading", "getDisplayImage:Image downloading");
+        time= new TimeCalculate();
+        time.startTimer();
         Picasso.with(context).load(url).placeholder(R.drawable.nehra).into(imageView);
-        Log.w("Image set", "getDisplayImage:Image downloading complete");
+        time.endTime();
+        totalTime=time.timeRequired();
+        Log.w("Image set", ""+totalTime);
     }
 }

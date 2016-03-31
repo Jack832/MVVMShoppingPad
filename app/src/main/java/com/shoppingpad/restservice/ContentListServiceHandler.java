@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.shoppingpad.R;
+import com.shoppingpad.TimeCalculate;
 import com.shoppingpad.controller.ControllerModel;
 
 import org.apache.http.HttpEntity;
@@ -43,6 +44,8 @@ public class ContentListServiceHandler
     //using JsonArray to load the data from Url
     public JSONArray jsonArrayView;
     public JSONArray jsonArrayInfo;
+    TimeCalculate time;
+    double totalTime;
 
     //generating Dummy data here.
     public ContentListServiceHandler() {
@@ -51,6 +54,7 @@ public class ContentListServiceHandler
             populateDummyData();
         } else
         {
+            time= new TimeCalculate();
             jsonArrayView = new JSONArray();
             jsonArrayInfo = new JSONArray();
         }
@@ -65,16 +69,22 @@ public class ContentListServiceHandler
     //reading Url to get the data of ViewList
     public JSONArray getJsonArrayOfView()
     {
+        time.startTimer();
         jsonArrayView = getJsonData(ContentViewUrl);
-        Log.w("server call", "getJsonArrayOfInfo:View Download ");
+        time.endTime();
+        totalTime=time.timeRequired();
+        Log.w("server call", "ViewData fetch"+totalTime);
         return jsonArrayView;
     }
 
     //reading Url to get the data of InfoList
     public JSONArray getJsonArrayOfInfo()
     {
+        time.startTimer();
         JSONArray jsonArrayInfo = getJsonData(ContentInfoUrl);
-        Log.w("server call", "getJsonArrayOfInfo:info Download ");
+        time.endTime();
+        totalTime=time.timeRequired();
+        Log.w("Server call","InfoData fetch:"+totalTime);
         return jsonArrayInfo;
     }
 
